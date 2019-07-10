@@ -1,26 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
- "http://www.w3.org/TR/REC-html40/loose.dtd">
- <html>
- <head>
- <title>SCENE I. King Lear's palace.
- </title>
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
- <LINK rel="stylesheet" type="text/css" media="screen"
-       href="/shake.css">
- </HEAD>
- <body bgcolor="#ffffff" text="#000000">
-
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="play" align="center">King Lear
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 1, Scene 1
-   <br>
-      <a href="lear.1.2.html">Next scene</A>
-</table>
-
-<h3>SCENE I. King Lear's palace.</H3>
+King Lear
 
 <p><blockquote>
 <i>Enter KENT, GLOUCESTER, and EDMUND</i>
@@ -167,7 +145,7 @@
 <A NAME=63>Love, and be silent.</A><br>
 </blockquote>
 
-<A NAME=speech20><b>LEAR</b></a>
+<A NAME=speech20><b>KING LEAR</b></a>
 <blockquote>
 <A NAME=64>Of all these bounds, even from this line to this,</A><br>
 <A NAME=65>With shadowy forests and with champains rich'd,</A><br>

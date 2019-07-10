@@ -1,6 +1,10 @@
 ANTIGONE
 [ANTIGONE and ISMENE before the Palace gates.]
 
+<Eteocles and Polyneices are characters that don't speak>
+<b>ETEOCLES</b>
+<b>POLYNEICES</b>
+
 <b>ANTIGONE</b>
 Ismene, sister of my blood and heart,
 See'st thou how Zeus would in our lives fulfill
@@ -2205,8 +2209,3 @@ And on my head I feel the heavy weight
      Mightily the gods do smite.
      Chastisement for errors past
      Wisdom brings to age at last.
-
-
-<Eteocles and Polyneices are characters that don't speak>
-<b>ETEOCLES</b>
-<b>POLYNEICES</b>

@@ -1,30 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
- "http://www.w3.org/TR/REC-html40/loose.dtd">
- <html>
- <head>
- <title>SCENE VII. A tent in the French camp. LEAR on a bed asleep,
- </title>
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
- <LINK rel="stylesheet" type="text/css" media="screen"
-       href="/shake.css">
- </HEAD>
- <body bgcolor="#ffffff" text="#000000">
-
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="play" align="center">King Lear
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 4, Scene 7
-   <br>
-      <a href="lear.4.6.html">Previous scene</A>
-    | <a href="lear.5.1.html">Next scene</A>
-</table>
-
-<H3>SCENE VII. A tent in the French camp. LEAR on a bed asleep,</h3>
-
 <blockquote>
-<A NAME=1>soft music playing; Gentleman, and others attending.</A><br>
 <p><i>Enter CORDELIA, KENT, and Doctor</i></p>
 </blockquote>
 
