@@ -50,18 +50,3 @@
 <A NAME=19>Sometime with lunatic bans, sometime with prayers,</A><br>
 <A NAME=20>Enforce their charity. Poor Turlygod! poor Tom!</A><br>
 <A NAME=21>That's something yet: Edgar I nothing am.</A><br>
-<p><i>Exit</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 2, Scene 3
-   <br>
-      <a href="lear.2.2.html">Previous scene</A>
-    | <a href="lear.2.4.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

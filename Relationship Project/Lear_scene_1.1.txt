@@ -705,17 +705,3 @@
 <A NAME=speech85><b>GONERIL</b></a>
 <blockquote>
 <A NAME=332>We must do something, and i' the heat.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 1, Scene 1
-   <br>
-      <a href="lear.1.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

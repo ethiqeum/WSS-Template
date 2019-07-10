@@ -259,18 +259,3 @@
 <A NAME=109>To thank thee for the love thou show'dst the king,</A><br>
 <A NAME=110>And to revenge thine eyes. Come hither, friend:</A><br>
 <A NAME=111>Tell me what more thou know'st.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 4, Scene 2
-   <br>
-      <a href="lear.4.1.html">Previous scene</A>
-    | <a href="lear.4.3.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

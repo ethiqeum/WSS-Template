@@ -935,4 +935,3 @@
 <A NAME=384>Speak what we feel, not what we ought to say.</A><br>
 <A NAME=385>The oldest hath borne most: we that are young</A><br>
 <A NAME=386>Shall never see so much, nor live so long.</A><br>
-<p><i>Exeunt, with a dead march</i></p>

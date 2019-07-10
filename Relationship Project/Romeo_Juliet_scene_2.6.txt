@@ -99,17 +99,3 @@
 <A NAME=35>Come, come with me, and we will make short work;</A><br>
 <A NAME=36>For, by your leaves, you shall not stay alone</A><br>
 <A NAME=37>Till holy church incorporate two in one.</A><br>
-<p><i>Exeunt</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 2, Scene 6
-   <br>
-      <a href="romeo_juliet.2.5.html">Previous scene</A>
-    | <a href="romeo_juliet.3.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

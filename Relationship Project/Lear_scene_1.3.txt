@@ -81,18 +81,3 @@
 <A NAME=25>I would breed from hence occasions, and I shall,</A><br>
 <A NAME=26>That I may speak: I'll write straight to my sister,</A><br>
 <A NAME=27>To hold my very course. Prepare for dinner.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 1, Scene 3
-   <br>
-      <a href="lear.1.2.html">Previous scene</A>
-    | <a href="lear.1.4.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

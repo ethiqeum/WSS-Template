@@ -461,18 +461,3 @@
 <A NAME=223>latter end of a play, before the duke:</A><br>
 <A NAME=224>peradventure, to make it the more gracious, I shall</A><br>
 <A NAME=225>sing it at her death.</A><br>
-<p><i>Exit</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/midsummer/">Midsummer Night's Dream</A> 
-    | Act 4, Scene 1
-   <br>
-      <a href="midsummer.3.2.html">Previous scene</A>
-    | <a href="midsummer.4.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

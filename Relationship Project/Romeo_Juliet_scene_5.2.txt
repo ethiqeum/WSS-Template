@@ -89,18 +89,3 @@
 <A NAME=28>But I will write again to Mantua,</A><br>
 <A NAME=29>And keep her at my cell till Romeo come;</A><br>
 <A NAME=30>Poor living corse, closed in a dead man's tomb!</A><br>
-<p><i>Exit</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 5, Scene 2
-   <br>
-      <a href="romeo_juliet.5.1.html">Previous scene</A>
-    | <a href="romeo_juliet.5.3.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

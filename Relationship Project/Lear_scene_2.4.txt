@@ -770,17 +770,3 @@
 <blockquote>
 <A NAME=338>Shut up your doors, my lord; 'tis a wild night:</A><br>
 <A NAME=339>My Regan counsels well; come out o' the storm.</A><br>
-<p><i>Exeunt</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 2, Scene 4
-   <br>
-      <a href="lear.2.3.html">Previous scene</A>
-    | <a href="lear.3.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

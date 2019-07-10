@@ -306,18 +306,3 @@
 <A NAME=129>This must be known; which, being kept close, might</A><br>
 <A NAME=130>move</A><br>
 <A NAME=131>More grief to hide than hate to utter love.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 2, Scene 1
-   <br>
-      <a href="hamlet.1.5.html">Previous scene</A>
-    | <a href="hamlet.2.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

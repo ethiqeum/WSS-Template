@@ -290,17 +290,3 @@
 <A NAME=speech41><b>BOTTOM</b></a>
 <blockquote>
 <A NAME=101>Enough; hold or cut bow-strings.</A><br>
-<p><i>Exeunt</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/midsummer/">Midsummer Night's Dream</A> 
-    | Act 1, Scene 2
-   <br>
-      <a href="midsummer.1.1.html">Previous scene</A>
-    | <a href="midsummer.2.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

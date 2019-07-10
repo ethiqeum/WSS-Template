@@ -234,18 +234,3 @@
 <A NAME=76>The battle done, and they within our power,</A><br>
 <A NAME=77>Shall never see his pardon; for my state</A><br>
 <A NAME=78>Stands on me to defend, not to debate.</A><br>
-<p><i>Exit</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 5, Scene 1
-   <br>
-      <a href="lear.4.7.html">Previous scene</A>
-    | <a href="lear.5.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

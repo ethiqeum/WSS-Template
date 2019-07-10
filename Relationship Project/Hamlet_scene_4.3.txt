@@ -212,18 +212,3 @@
 <A NAME=71>For like the hectic in my blood he rages,</A><br>
 <A NAME=72>And thou must cure me: till I know 'tis done,</A><br>
 <A NAME=73>Howe'er my haps, my joys were ne'er begun.</A><br>
-<p><i>Exit</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 4, Scene 3
-   <br>
-      <a href="hamlet.4.2.html">Previous scene</A>
-    | <a href="hamlet.4.4.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

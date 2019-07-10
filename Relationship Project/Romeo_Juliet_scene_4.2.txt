@@ -149,18 +149,3 @@
 <A NAME=46>To County Paris, to prepare him up</A><br>
 <A NAME=47>Against to-morrow: my heart is wondrous light,</A><br>
 <A NAME=48>Since this same wayward girl is so reclaim'd.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 4, Scene 2
-   <br>
-      <a href="romeo_juliet.4.1.html">Previous scene</A>
-    | <a href="romeo_juliet.4.3.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

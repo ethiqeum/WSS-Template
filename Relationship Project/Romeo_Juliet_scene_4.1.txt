@@ -286,18 +286,3 @@
 <blockquote>
 <A NAME=126>Love give me strength! and strength shall help afford.</A><br>
 <A NAME=127>Farewell, dear father!</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 4, Scene 1
-   <br>
-      <a href="romeo_juliet.3.5.html">Previous scene</A>
-    | <a href="romeo_juliet.4.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

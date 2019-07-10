@@ -124,17 +124,3 @@
 <A NAME=39>nor garlic, for we are to utter sweet breath; and I</A><br>
 <A NAME=40>do not doubt but to hear them say, it is a sweet</A><br>
 <A NAME=41>comedy. No more words: away! go, away!</A><br>
-<p><i>Exeunt</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/midsummer/">Midsummer Night's Dream</A> 
-    | Act 4, Scene 2
-   <br>
-      <a href="midsummer.4.1.html">Previous scene</A>
-    | <a href="midsummer.5.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

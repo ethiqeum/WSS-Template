@@ -98,18 +98,3 @@
 <A NAME=40>And let them know, both what we mean to do,</A><br>
 <A NAME=41>And what's untimely done. O, come away!</A><br>
 <A NAME=42>My soul is full of discord and dismay.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 4, Scene 1
-   <br>
-      <a href="hamlet.3.4.html">Previous scene</A>
-    | <a href="hamlet.4.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

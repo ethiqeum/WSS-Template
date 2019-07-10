@@ -790,18 +790,3 @@
 <A NAME=305>This grave shall have a living monument:</A><br>
 <A NAME=306>An hour of quiet shortly shall we see;</A><br>
 <A NAME=307>Till then, in patience our proceeding be.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 5, Scene 1
-   <br>
-      <a href="hamlet.4.7.html">Previous scene</A>
-    | <a href="hamlet.5.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

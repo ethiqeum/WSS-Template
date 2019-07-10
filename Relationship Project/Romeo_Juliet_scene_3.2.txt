@@ -266,18 +266,3 @@
 <blockquote>
 <A NAME=146>O, find him! give this ring to my true knight,</A><br>
 <A NAME=147>And bid him come to take his last farewell.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 3, Scene 2
-   <br>
-      <a href="romeo_juliet.3.1.html">Previous scene</A>
-    | <a href="romeo_juliet.3.3.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

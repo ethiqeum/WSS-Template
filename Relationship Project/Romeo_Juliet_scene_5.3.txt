@@ -636,4 +636,3 @@
 <A NAME=319>Some shall be pardon'd, and some punished:</A><br>
 <A NAME=320>For never was a story of more woe</A><br>
 <A NAME=321>Than this of Juliet and her Romeo.</A><br>
-<p><i>Exeunt</i></p>

@@ -465,18 +465,3 @@
 <A NAME=175>Take vantage, heavy eyes, not to behold</A><br>
 <A NAME=176>This shameful lodging.</A><br>
 <A NAME=177>Fortune, good night: smile once more: turn thy wheel!</A><br>
-<p><i>Sleeps</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 2, Scene 2
-   <br>
-      <a href="lear.2.1.html">Previous scene</A>
-    | <a href="lear.2.3.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

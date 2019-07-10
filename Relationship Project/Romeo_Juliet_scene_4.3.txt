@@ -107,18 +107,3 @@
 <A NAME=57>Seeking out Romeo, that did spit his body</A><br>
 <A NAME=58>Upon a rapier's point: stay, Tybalt, stay!</A><br>
 <A NAME=59>Romeo, I come! this do I drink to thee.</A><br>
-<p><i>She falls upon her bed, within the curtains</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 4, Scene 3
-   <br>
-      <a href="romeo_juliet.4.2.html">Previous scene</A>
-    | <a href="romeo_juliet.4.4.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

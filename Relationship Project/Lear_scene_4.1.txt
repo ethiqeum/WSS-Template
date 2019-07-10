@@ -238,18 +238,3 @@
 <blockquote>
 <A NAME=89>Give me thy arm:</A><br>
 <A NAME=90>Poor Tom shall lead thee.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 4, Scene 1
-   <br>
-      <a href="lear.3.7.html">Previous scene</A>
-    | <a href="lear.4.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

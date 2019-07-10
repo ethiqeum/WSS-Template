@@ -460,17 +460,3 @@
 <blockquote>
 <A NAME=188>Let's do't, I pray; and I this morning know</A><br>
 <A NAME=189>Where we shall find him most conveniently.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 1, Scene 1
-   <br>
-      <a href="hamlet.1.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

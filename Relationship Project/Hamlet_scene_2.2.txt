@@ -1319,17 +1319,3 @@
 <A NAME=614>Abuses me to damn me: I'll have grounds</A><br>
 <A NAME=615>More relative than this: the play 's the thing</A><br>
 <A NAME=616>Wherein I'll catch the conscience of the king.</A><br>
-<p><i>Exit</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 2, Scene 2
-   <br>
-      <a href="hamlet.2.1.html">Previous scene</A>
-    | <a href="hamlet.3.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

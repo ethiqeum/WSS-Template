@@ -296,18 +296,3 @@
 <A NAME=115>In thy just proof, repeals and reconciles thee.</A><br>
 <A NAME=116>What will hap more to-night, safe 'scape the king!</A><br>
 <A NAME=117>Lurk, lurk.</A><br>
-<p><i>Exit</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 3, Scene 6
-   <br>
-      <a href="lear.3.5.html">Previous scene</A>
-    | <a href="lear.3.7.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

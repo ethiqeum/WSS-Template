@@ -310,17 +310,3 @@
 <blockquote>
 <A NAME=109>My point and period will be throughly wrought,</A><br>
 <A NAME=110>Or well or ill, as this day's battle's fought.</A><br>
-<p><i>Exit</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/lear/">King Lear</A> 
-    | Act 4, Scene 7
-   <br>
-      <a href="lear.4.6.html">Previous scene</A>
-    | <a href="lear.5.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

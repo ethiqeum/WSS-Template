@@ -367,17 +367,3 @@
 <blockquote>
 <A NAME=141>Hang him, Jack! Come, we'll in here; tarry for the</A><br>
 <A NAME=142>mourners, and stay dinner.</A><br>
-<p><i>Exeunt</i></p>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 4, Scene 5
-   <br>
-      <a href="romeo_juliet.4.4.html">Previous scene</A>
-    | <a href="romeo_juliet.5.1.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

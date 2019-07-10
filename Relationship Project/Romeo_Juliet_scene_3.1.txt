@@ -482,18 +482,3 @@
 <A NAME=201>Else, when he's found, that hour is his last.</A><br>
 <A NAME=202>Bear hence this body and attend our will:</A><br>
 <A NAME=203>Mercy but murders, pardoning those that kill.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/romeo_juliet/">Romeo and Juliet</A> 
-    | Act 3, Scene 1
-   <br>
-      <a href="romeo_juliet.2.6.html">Previous scene</A>
-    | <a href="romeo_juliet.3.2.html">Next scene</A>
-</table>
-
-</body>
-</html>
-

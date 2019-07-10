@@ -126,18 +126,3 @@
 <A NAME=speech18><b>HAMLET</b></a>
 <blockquote>
 <A NAME=30>Of nothing: bring me to him. Hide fox, and all after.</A><br>
-<p><i>Exeunt</i></p>
-</blockquote>
-<table width="100%" bgcolor="#CCF6F6">
-<tr><td class="nav" align="center">
-      <a href="/Shakespeare">Shakespeare homepage</A> 
-    | <A href="/Shakespeare/hamlet/">Hamlet</A> 
-    | Act 4, Scene 2
-   <br>
-      <a href="hamlet.4.1.html">Previous scene</A>
-    | <a href="hamlet.4.3.html">Next scene</A>
-</table>
-
-</body>
-</html>
-
