@@ -1,0 +1,44 @@
+<p><blockquote>
+<i>Alarum within. Enter, with drum and colours,  KING LEAR, CORDELIA, and Soldiers, over the stage; and exeunt</i>
+</blockquote>
+<p><blockquote>
+<i>Enter EDGAR and GLOUCESTER</i>
+</blockquote>
+
+<A NAME=speech1><b>EDGAR</b></a>
+<blockquote>
+<A NAME=1>Here, father, take the shadow of this tree</A><br>
+<A NAME=2>For your good host; pray that the right may thrive:</A><br>
+<A NAME=3>If ever I return to you again,</A><br>
+<A NAME=4>I'll bring you comfort.</A><br>
+</blockquote>
+
+<A NAME=speech2><b>GLOUCESTER</b></a>
+<blockquote>
+<A NAME=5>Grace go with you, sir!</A><br>
+<p><i>Exit EDGAR</i></p>
+<p><i>Alarum and retreat within. Re-enter EDGAR</i></p>
+</blockquote>
+
+<A NAME=speech3><b>EDGAR</b></a>
+<blockquote>
+<A NAME=6>Away, old man; give me thy hand; away!</A><br>
+<A NAME=7>King Lear hath lost, he and his daughter ta'en:</A><br>
+<A NAME=8>Give me thy hand; come on.</A><br>
+</blockquote>
+
+<A NAME=speech4><b>GLOUCESTER</b></a>
+<blockquote>
+<A NAME=9>No farther, sir; a man may rot even here.</A><br>
+</blockquote>
+
+<A NAME=speech5><b>EDGAR</b></a>
+<blockquote>
+<A NAME=10>What, in ill thoughts again? Men must endure</A><br>
+<A NAME=11>Their going hence, even as their coming hither;</A><br>
+<A NAME=12>Ripeness is all: come on.</A><br>
+</blockquote>
+
+<A NAME=speech6><b>GLOUCESTER</b></a>
+<blockquote>
+<A NAME=13>And that's true too.</A><br>

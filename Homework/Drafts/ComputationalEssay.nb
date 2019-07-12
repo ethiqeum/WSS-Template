@@ -1,0 +1,1429 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     55808,       1421]
+NotebookOptionsPosition[     49145,       1297]
+NotebookOutlinePosition[     50144,       1331]
+CellTagsIndexPosition[     50075,       1326]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Automatic Evaluation of the Relationships Between Characters in Plays",
+ StyleBox[" ",
+  FontSize->16]
+}], "Title",
+ CellChangeTimes->{{3.770055572438499*^9, 3.7700555729498453`*^9}, {
+  3.770055604008165*^9, 3.7700556066618843`*^9}, {3.770373672636671*^9, 
+  3.7703737875292807`*^9}, {3.7718552616710787`*^9, 3.7718552839165897`*^9}, {
+  3.7718555082237377`*^9, 3.771855536013421*^9}},
+ CellTags->"Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd"],
+
+Cell["\<\
+Jason Zeng
+Mentor: Rory Foulger\
+\>", "Text",
+ CellChangeTimes->{{3.549624168509506*^9, 3.549624171985794*^9}, {
+  3.549624508772977*^9, 3.549624510775043*^9}, {3.5498187159613867`*^9, 
+  3.5498187170087957`*^9}, {3.549819049020514*^9, 3.5498190533440437`*^9}, {
+  3.77005561844785*^9, 3.7700556489651537`*^9}, {3.77186022845325*^9, 
+  3.7718602367889585`*^9}, {3.7718614942768373`*^9, 
+  3.771861501722924*^9}},ExpressionUUID->"94536f76-3fd2-4bf6-b228-\
+fa93ec9acae9"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Section",
+ CellChangeTimes->{{3.7719268014841967`*^9, 
+  3.771926827091957*^9}},ExpressionUUID->"d670d8cf-9ba1-42b5-afa2-\
+134d219e171a"],
+
+Cell["\<\
+Text analysis provides insight into stories that can be difficult to parse, \
+especially when they are sufficiently large. This project aims to make a \
+program that can use sentiment analysis in conjunction with text analysis on \
+any play in order to evaluate the relationships between characters. One can \
+use sentiment analysis on each sentence and incorporate the frequency of \
+these sentiments to determine a relationship' s health. Then, a graph with \
+vertices representing the characters and edges representing their \
+relationships illustrates the entire social network. The health of these \
+relationships can be visualized with color, and frequency with width. Further \
+operations with graphing functions can provide information on local groups \
+within the play. In addition, accounting for who speaks to who, visualized \
+with directed edges, allows for nuanced relationships in which feelings are \
+not mutual.\
+\>", "Text",
+ CellChangeTimes->{{3.771926830036293*^9, 3.771926904246425*^9}, {
+  3.771926936376941*^9, 3.771926978374832*^9}, {3.7719314186406755`*^9, 
+  3.771931421797263*^9}},ExpressionUUID->"77285646-8c99-4bd9-ac9f-\
+cedeb7c0fefa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Objective", "Section",
+ CellChangeTimes->{{3.7718613489755907`*^9, 
+  3.7718614068368025`*^9}},ExpressionUUID->"f224ad33-a34e-40da-a4f3-\
+5348e6a21888"],
+
+Cell["\<\
+Given any play, use text analysis to evaluate the relationships between \
+characters. Analyze the sentiment of sentences that connect two characters - \
+as well as the frequency of these sentences - to determine the health of \
+their relationship. Then, create a graph with vertices to represent the \
+characters, and edges to represent their relationships. The health of these \
+relationships can be visualized with color and width. Further operations with \
+graphing functions can provide information on local groups within the play. \
+In addition, accounting for who speaks, visualized with directed edges, \
+allows for nuanced relationships in which feelings are not mutual.\
+\>", "Text",
+ CellChangeTimes->{{3.7718614097500114`*^9, 3.7718614503245063`*^9}, {
+  3.7718655252344203`*^9, 3.7718655372841964`*^9}, {3.771865703633651*^9, 
+  3.771865710368638*^9}, {3.7718657424847784`*^9, 3.7718657462277417`*^9}, {
+  3.7718690237186565`*^9, 
+  3.771869025574994*^9}},ExpressionUUID->"38ea1541-409b-43f5-9d95-\
+a5a4e29bbd6a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Play Selection", "Section",
+ CellChangeTimes->{{3.7718612885396566`*^9, 
+  3.7718613179488144`*^9}},ExpressionUUID->"2ba667a8-f65d-426d-aa23-\
+84ad71120121"],
+
+Cell["\<\
+In order to demonstrate the universality of my program, I analyzed 10 plays \
+of various time period: 5 Shakespearean, 3 of the Oedipus Trilogy, and 2 \
+modern. The user can select a play by clicking on one of the labeled buttons.\
+\>", "Text",
+ CellChangeTimes->{{3.7718656265511446`*^9, 3.7718656661488934`*^9}, {
+  3.7718657599211235`*^9, 3.7718658048764944`*^9}, {3.7718659138200626`*^9, 
+  3.7718659161977043`*^9}, {3.771865960133503*^9, 3.771866064401002*^9}, {
+  3.7718661159302015`*^9, 3.7718661163610487`*^9}, {3.771866603236375*^9, 
+  3.771866651678512*^9}, {3.771866839412677*^9, 3.7718669423958287`*^9}, {
+  3.771917586854766*^9, 
+  3.7719176266773005`*^9}},ExpressionUUID->"0ac1297b-64ff-448d-81ab-\
+9b752a8d4edb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"plays", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Antigone\>\"", ",", " ", "\"\<Death of a Salesman\>\"", ",", " ", 
+     "\"\<Hamlet\>\"", ",", " ", "\"\<King Lear\>\"", ",", " ", 
+     "\"\<Midsummer Night's Dream\>\"", ",", " ", 
+     "\"\<Oedipus At Colonus\>\"", ",", " ", "\"\<Oedipus The King\>\"", ",", 
+     " ", "\"\<Romeo and Juliet\>\"", ",", " ", "\"\<The Glass Menagerie\>\"",
+      ",", " ", "\"\<The Tempest\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Row", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Antigone\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "1"}], ",", 
+        RowBox[{"startInd", "=", "1"}], ",", " ", 
+        RowBox[{"endInd", "=", "1"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Death of a Salesman\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "2"}], ",", " ", 
+        RowBox[{"startInd", "=", "2"}], ",", " ", 
+        RowBox[{"endInd", "=", "2"}]}], "}"}]}], "]"}], ",", " ", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Hamlet\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "3"}], ",", " ", 
+        RowBox[{"startInd", "=", "3"}], ",", " ", 
+        RowBox[{"endInd", "=", "22"}]}], "}"}]}], "]"}], ",", " ", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<King Lear\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "4"}], ",", " ", 
+        RowBox[{"startInd", "=", "23"}], ",", " ", 
+        RowBox[{"endInd", "=", "48"}]}], "}"}]}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Midsummer Night's Dream\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "5"}], ",", " ", 
+        RowBox[{"startInd", "=", "49"}], ",", " ", 
+        RowBox[{"endInd", "=", "57"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Oedipus At Colonus\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "6"}], ",", " ", 
+        RowBox[{"startInd", "=", "58"}], ",", " ", 
+        RowBox[{"endInd", "=", "58"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Oedipus The King\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "7"}], ",", " ", 
+        RowBox[{"startInd", "=", "59"}], ",", " ", 
+        RowBox[{"endInd", "=", "59"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<Romeo and Juliet\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "8"}], ",", " ", 
+        RowBox[{"startInd", "=", "60"}], ",", " ", 
+        RowBox[{"endInd", "=", "83"}]}], "}"}]}], "]"}], ",", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<The Glass Menagerie\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "9"}], ",", " ", 
+        RowBox[{"startInd", "=", "84"}], ",", " ", 
+        RowBox[{"endInd", "=", "84"}]}], "}"}]}], "]"}], ",", " ", 
+    RowBox[{"Button", "[", 
+     RowBox[{"\"\<The Tempest\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"playNum", "=", "10"}], ",", " ", 
+        RowBox[{"startInd", "=", "85"}], ",", " ", 
+        RowBox[{"endInd", "=", "93"}]}], "}"}]}], "]"}]}], "}"}], "]"}], "\n", 
+ TemplateBox[{
+  ButtonBox[
+   "\"Antigone\"", 
+    ButtonFunction :> {$CellContext`playNum = 1, $CellContext`startInd = 
+      1, $CellContext`endInd = 1}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"Death of a Salesman\"", 
+    ButtonFunction :> {$CellContext`playNum = 2, $CellContext`startInd = 
+      2, $CellContext`endInd = 2}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"Hamlet\"", 
+    ButtonFunction :> {$CellContext`playNum = 3, $CellContext`startInd = 
+      3, $CellContext`endInd = 22}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"King Lear\"", 
+    ButtonFunction :> {$CellContext`playNum = 4, $CellContext`startInd = 
+      23, $CellContext`endInd = 48}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"Midsummer Night's Dream\"", 
+    ButtonFunction :> {$CellContext`playNum = 5, $CellContext`startInd = 
+      49, $CellContext`endInd = 57}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"Oedipus At Colonus\"", 
+    ButtonFunction :> {$CellContext`playNum = 6, $CellContext`startInd = 
+      58, $CellContext`endInd = 58}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"Oedipus The King\"", 
+    ButtonFunction :> {$CellContext`playNum = 7, $CellContext`startInd = 
+      59, $CellContext`endInd = 59}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"Romeo and Juliet\"", 
+    ButtonFunction :> {$CellContext`playNum = 8, $CellContext`startInd = 
+      60, $CellContext`endInd = 83}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"The Glass Menagerie\"", 
+    ButtonFunction :> {$CellContext`playNum = 9, $CellContext`startInd = 
+      84, $CellContext`endInd = 84}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"],ButtonBox[
+   "\"The Tempest\"", 
+    ButtonFunction :> {$CellContext`playNum = 10, $CellContext`startInd = 
+      85, $CellContext`endInd = 93}, Appearance -> Automatic, Evaluator -> 
+    Automatic, Method -> "Preemptive"]},
+  "RowDefault"]}], "Input",
+ CellChangeTimes->{{3.7718613255534773`*^9, 3.7718613430983076`*^9}, 
+   3.7718615530456743`*^9, {3.771861613686387*^9, 3.7718616143735495`*^9}, {
+   3.7718643833595796`*^9, 3.771864383835307*^9}, {3.7718666721703444`*^9, 
+   3.771866684303608*^9}},ExpressionUUID->"8a71709c-496e-46f5-b45b-\
+7e69e01916e1"],
+
+Cell["\<\
+Selecting a play initializes several values specific to each play: play \
+number, negativity bias, positive tolerance, and negative tolerance. Apart \
+from play number, each has a default value that can be overwritten with \
+experimental values.\
+\>", "Text",
+ CellChangeTimes->{{3.7718667162369967`*^9, 3.7718667917000327`*^9}, {
+  3.7718669565364428`*^9, 3.7718670180662394`*^9}, {3.771917638603423*^9, 
+  3.771917719773073*^9}},ExpressionUUID->"4b81b55e-51e1-498e-94ba-\
+012bbbf6c3dc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Set", " ", "conditions", " ", "specific", " ", "to", " ", 
+    RowBox[{"play", ":", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"play", " ", "number"}], ",", " ", 
+       RowBox[{"negativity", " ", "bias"}], ",", " ", 
+       RowBox[{"positive", " ", "tolerance"}], ",", " ", 
+       RowBox[{"negative", " ", "tolerance"}]}], "}"}]}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"playConditions", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+        "plays", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+        "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", " ", "1", ",", ".30", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "plays", "]"}]}], "}"}]}], "]"}]}], ";", " ", 
+    RowBox[{"(*", " ", 
+     RowBox[{"Default", " ", "Setting"}], " ", "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"exceptions", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "1", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"1", ",", "1.2", ",", ".20", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "2", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"2", ",", "1.35", ",", ".30", ",", 
+          RowBox[{"-", ".20"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "3", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"3", ",", "1.25", ",", ".40", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "4", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"4", ",", "1.3", ",", ".30", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", " ", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "5", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"5", ",", "1.3", ",", ".30", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "6", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"6", ",", "1.3", ",", ".30", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "7", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"7", ",", "1.3", ",", ".30", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "8", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"8", ",", "1.3", ",", ".35", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "9", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"9", ",", "1.3", ",", ".30", ",", 
+          RowBox[{"-", ".20"}]}], "}"}]}], ",", 
+       RowBox[{
+        RowBox[{"Values", "[", 
+         RowBox[{
+         "playConditions", "\[LeftDoubleBracket]", "10", 
+          "\[RightDoubleBracket]"}], "]"}], "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"10", ",", "1.3", ",", ".30", ",", 
+          RowBox[{"-", ".30"}]}], "}"}]}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"playConditions", "=", 
+     RowBox[{"playConditions", "/.", "exceptions"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7718666777629614`*^9, 3.771866693707413*^9}, 
+   3.771867617627529*^9, 
+   3.771868816234703*^9},ExpressionUUID->"602140ec-bec7-45fb-a866-\
+4196129d93af"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Play Processing", "Section",
+ CellChangeTimes->{{3.7718619736231766`*^9, 3.7718620227876997`*^9}, {
+  3.7718625962356815`*^9, 
+  3.7718625980069284`*^9}},ExpressionUUID->"2b2f0cb3-15e2-488a-882c-\
+e5f9bf3cdebd"],
+
+Cell[CellGroupData[{
+
+Cell["Import", "Subsection",
+ CellChangeTimes->{{3.7718642316353693`*^9, 
+  3.771864241349392*^9}},ExpressionUUID->"7da48ae7-4e59-43ef-894e-\
+361d5c08d3d3"],
+
+Cell["\<\
+Subsequently, the user loads the text files of the play they specify. The \
+files are concatenated into one large string. All of the speakers are \
+uniquely bolded, so the list of speakers in order can be extracted with a \
+pattern.\
+\>", "Text",
+ CellChangeTimes->{{3.771918725161763*^9, 3.77191880943591*^9}, {
+  3.771920406249301*^9, 
+  3.7719205826036816`*^9}},ExpressionUUID->"5a7fb105-2a8c-4909-83fd-\
+cb8144ee5649"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"files", "=", 
+   RowBox[{"FileNames", "[", 
+    RowBox[{"\"\<*.txt\>\"", ",", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"text", "=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Import", "[", "#", "]"}], "&"}], "/@", 
+     RowBox[{"files", "\[LeftDoubleBracket]", 
+      RowBox[{"startInd", ";;", "endInd"}], "\[RightDoubleBracket]"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"speakerOrder", "=", 
+   RowBox[{"Capitalize", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToLowerCase", "@", 
+       RowBox[{"StringCases", "[", 
+        RowBox[{"text", ",", 
+         RowBox[{
+          RowBox[{"Shortest", "[", 
+           RowBox[{"\"\<<b>\>\"", "~~", "x__", "~~", "\"\<</b>\>\""}], "]"}], 
+          "->", "x"}]}], "]"}]}], "//", "Flatten"}], ",", 
+     "\"\<AllWords\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nameList", "=", 
+   RowBox[{"speakerOrder", "//", "DeleteDuplicates"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7718625997492685`*^9, 3.7718626331539364`*^9}, {
+  3.771866089754202*^9, 
+  3.7718660911575003`*^9}},ExpressionUUID->"bf662e0f-634d-4654-bcac-\
+fee7ba37343f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Data Cleaning", "Subsection",
+ CellChangeTimes->{{3.77186263611801*^9, 
+  3.7718626579745603`*^9}},ExpressionUUID->"720ce5d0-a642-4677-845a-\
+8123e5e51bab"],
+
+Cell["\<\
+Each speaker delimits a line. So, the lines are split and cleaned of \
+nonessential information, only leaving the dialogue. Then, the lines are \
+divided into sentences in preparation for individual sentiment analysis.\
+\>", "Text",
+ CellChangeTimes->{{3.7719205867077355`*^9, 3.771920643131835*^9}, {
+  3.771920685213073*^9, 3.771920690297453*^9}, {3.771926335886698*^9, 
+  3.7719263879780836`*^9}, {3.771926536672162*^9, 
+  3.771926640166424*^9}},ExpressionUUID->"09c17784-6919-4e7a-b41a-\
+7e784c187477"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lines", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringSplit", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"text", "//", 
+         RowBox[{"StringDelete", "[", 
+          RowBox[{"Shortest", "[", 
+           RowBox[{"\"\<<i>\>\"", "~~", "x__", "~~", "\"\<</i>\>\""}], "]"}], 
+          "]"}]}], "//", 
+        RowBox[{"StringDelete", "[", 
+         RowBox[{"Shortest", "[", 
+          RowBox[{"\"\<[\>\"", "~~", "x__", "~~", "\"\<]\>\""}], "]"}], 
+         "]"}]}], ",", 
+       RowBox[{"Shortest", "[", 
+        RowBox[{"\"\<<b>\>\"", "~~", "x__", "~~", "\"\<</b>\>\""}], "]"}]}], 
+      "]"}], "//", 
+     RowBox[{"StringDelete", "[", 
+      RowBox[{"Shortest", "[", 
+       RowBox[{"\"\<<\>\"", "~~", "x___", "~~", "\"\<>\>\""}], "]"}], "]"}]}],
+     "//", "Rest"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sentences", "=", 
+   RowBox[{"lines", "//", "TextSentences"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7718626611181536`*^9, 3.771862662604225*^9}, {
+  3.7718677371192126`*^9, 3.7718677402835407`*^9}, {3.7719266935658407`*^9, 
+  3.7719266939098415`*^9}},ExpressionUUID->"88709f09-dfdf-4386-9198-\
+44c2f101aad2"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Determining Speaker and Recipient", "Section",
+ CellChangeTimes->{{3.771861986472827*^9, 3.7718619953570557`*^9}, 
+   3.771862067186964*^9, {3.771862171784246*^9, 3.7718621824287796`*^9}, {
+   3.771862237464613*^9, 
+   3.771862241927677*^9}},ExpressionUUID->"cfe498a9-05df-4161-b5f9-\
+c4c96bfcafc5"],
+
+Cell["\<\
+The speaker of each sentence corresponds to the speaker of the line given by \
+speakerOrder. To determine the recipient of a sentence, I begin with an \
+initial guess that the recipient of a sentiment is the previous speaker. In \
+the case of the first sentence, I guess that the second speaker receives the \
+sentiment.\
+\>", "Text",
+ CellChangeTimes->{{3.771926717681203*^9, 3.7719267274706583`*^9}, {
+  3.7719270289018755`*^9, 3.771927167735755*^9}, {3.7719272272738466`*^9, 
+  3.7719272471927953`*^9}, {3.7719273888601136`*^9, 
+  3.7719273942128205`*^9}},ExpressionUUID->"3d59db1d-4331-4bf8-9165-\
+6d474912037f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"speakerBySentence", "=", 
+   RowBox[{
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+        "speakerOrder", "\[LeftDoubleBracket]", "i", 
+         "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"Length", "[", 
+         RowBox[{
+         "sentences", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+         "]"}]}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", "lines", "]"}]}], "}"}]}], "]"}], "//", 
+    "Flatten"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"recipientByLine", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"speakerOrder", "\[LeftDoubleBracket]", 
+          RowBox[{"i", "-", "1"}], "\[RightDoubleBracket]"}], ",", 
+         RowBox[{"Length", "[", 
+          RowBox[{
+          "sentences", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}],
+           "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "2", ",", 
+         RowBox[{"Length", "[", "lines", "]"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+       "speakerOrder", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}],
+        ",", 
+       RowBox[{"Length", "[", 
+        RowBox[{"First", "[", "sentences", "]"}], "]"}]}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"recipientBySentence", "=", 
+   RowBox[{"Nest", "[", 
+    RowBox[{
+     RowBox[{"Prepend", "[", 
+      RowBox[{
+      "speakerOrder", "\[LeftDoubleBracket]", "2", "\[RightDoubleBracket]"}], 
+      "]"}], ",", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"speakerOrder", "\[LeftDoubleBracket]", 
+           RowBox[{"i", "-", "1"}], "\[RightDoubleBracket]"}], ",", 
+          RowBox[{"Length", "[", 
+           RowBox[{
+           "sentences", "\[LeftDoubleBracket]", "i", 
+            "\[RightDoubleBracket]"}], "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "2", ",", 
+          RowBox[{"Length", "[", "lines", "]"}]}], "}"}]}], "]"}], "//", 
+      "Flatten"}], ",", 
+     RowBox[{"Length", "[", 
+      RowBox[{"First", "[", "sentences", "]"}], "]"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.7718627672573123`*^9, 3.7718627955756054`*^9}, {
+   3.77192655529045*^9, 3.7719265616034255`*^9}, {3.77192669838276*^9, 
+   3.77192669854676*^9}, {3.771927200178254*^9, 3.7719272015904603`*^9}, 
+   3.7719287014728923`*^9},ExpressionUUID->"dcd33272-b251-4307-b7c4-\
+dc4ce93b7a74"],
+
+Cell["\<\
+To improve on the initial guess, I assume that having one\[CloseCurlyQuote]s \
+name mentioned indicates that they are the recipient of the sentiment of the \
+sentence. As such, I search through each sentence for an instance of any name \
+on nameList, and record the position in sentences.\
+\>", "Text",
+ CellChangeTimes->{{3.7719272057550864`*^9, 3.7719272121836643`*^9}, {
+  3.77192736220415*^9, 3.7719273737301435`*^9}, {3.771927407250122*^9, 
+  3.771927530914736*^9}},ExpressionUUID->"4419371d-1495-44dd-a473-\
+b464a34437d1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"emphasis", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"WordFrequency", "[", 
+      RowBox[{
+       RowBox[{"Flatten", "[", "sentences", "]"}], ",", "#", ",", 
+       RowBox[{"IgnoreCase", "\[Rule]", "True"}]}], "]"}], "&"}], "/@", 
+    "nameList"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"diffRecipientPos", "=", 
+   RowBox[{"SortBy", "[", 
+    RowBox[{
+     RowBox[{"Position", "[", 
+      RowBox[{"emphasis", ",", 
+       RowBox[{"_", "?", "Positive"}]}], "]"}], ",", "Last"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.771927537047634*^9, 
+  3.7719275383518524`*^9}},ExpressionUUID->"8610949c-19d1-4a12-a6b0-\
+05070823b946"],
+
+Cell["\<\
+Overriding the initial guess, an instance of a name redefines the recipient \
+for the sentence it\[CloseCurlyQuote]s found in as well as all following \
+sentences in the same line. Doing so in sequential order of sentences \
+prevents unwanted overrides.\
+\>", "Text",
+ CellChangeTimes->{{3.771927542080119*^9, 3.771927601236109*^9}, {
+  3.771928049571723*^9, 
+  3.7719282160190496`*^9}},ExpressionUUID->"d08e5063-56d5-4f48-98d0-\
+bd8c47c64e05"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"lineLength", "=", 
+   RowBox[{"Length", "/@", "sentences"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sentenceGroup", "=", 
+   RowBox[{"TakeList", "[", 
+    RowBox[{
+     RowBox[{"Range", "[", 
+      RowBox[{"Length", "[", "recipientBySentence", "]"}], "]"}], ",", 
+     "lineLength"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sentenceToLineRules", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"i", "\[Rule]", 
+      RowBox[{"First", "@@", 
+       RowBox[{"Position", "[", 
+        RowBox[{"sentenceGroup", ",", "i"}], "]"}]}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "recipientBySentence", "]"}]}], "}"}]}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lineIndOfSentences", "=", 
+   RowBox[{
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "recipientBySentence", "]"}], "]"}], "/.", 
+    "sentenceToLineRules"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"sentenceNumOfDiffLine", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"Last", "@", 
+     RowBox[{
+     "diffRecipientPos", "\[LeftDoubleBracket]", "x", 
+      "\[RightDoubleBracket]"}]}], "-", 
+    RowBox[{"Total", "[", 
+     RowBox[{"lineLength", "\[LeftDoubleBracket]", 
+      RowBox[{";;", 
+       RowBox[{
+        RowBox[{"lineIndOfSentences", "\[LeftDoubleBracket]", 
+         RowBox[{"Last", "@", 
+          RowBox[{
+          "diffRecipientPos", "\[LeftDoubleBracket]", "x", 
+           "\[RightDoubleBracket]"}]}], "\[RightDoubleBracket]"}], "-", 
+        "1"}]}], "\[RightDoubleBracket]"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"i", "=", "1"}], ",", 
+   RowBox[{"i", "\[LessEqual]", 
+    RowBox[{"Length", "[", "diffRecipientPos", "]"}]}], ",", 
+   RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"recipientByLine", "\[LeftDoubleBracket]", 
+     RowBox[{
+      RowBox[{"lineIndOfSentences", "\[LeftDoubleBracket]", 
+       RowBox[{"Last", "@", 
+        RowBox[{
+        "diffRecipientPos", "\[LeftDoubleBracket]", "i", 
+         "\[RightDoubleBracket]"}]}], "\[RightDoubleBracket]"}], ",", 
+      RowBox[{
+       RowBox[{"sentenceNumOfDiffLine", "[", "i", "]"}], ";;"}]}], 
+     "\[RightDoubleBracket]"}], "=", 
+    RowBox[{"nameList", "\[LeftDoubleBracket]", 
+     RowBox[{"First", "@", 
+      RowBox[{
+      "diffRecipientPos", "\[LeftDoubleBracket]", "i", 
+       "\[RightDoubleBracket]"}]}], "\[RightDoubleBracket]"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.771928247018633*^9, 3.7719282475985746`*^9}, 
+   3.7719285125294514`*^9},ExpressionUUID->"70587acb-2814-4d85-91eb-\
+1f38cbafe361"],
+
+Cell["\<\
+Finally, the list of speakers and list of recipients sufficiently accurate, \
+and at each index they correspond to the same sentence. The finalRules \
+describe the interactions for each sentence, and the ruleList captures all \
+types of character interactions.\
+\>", "Text",
+ CellChangeTimes->{{3.7719282521310234`*^9, 3.771928391574047*^9}, {
+  3.7719284891067214`*^9, 3.771928498419932*^9}, {3.771930029056038*^9, 
+  3.7719300324603057`*^9}},ExpressionUUID->"9eecdf48-6cdb-4a6d-beb8-\
+0938b4cd4c4e"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"recipientBySentence", "=", 
+   RowBox[{"recipientByLine", "//", "Flatten"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"finalRules", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "speakerBySentence", "\[LeftDoubleBracket]", "i", 
+       "\[RightDoubleBracket]"}], "\[Rule]", 
+      RowBox[{
+      "recipientBySentence", "\[LeftDoubleBracket]", "i", 
+       "\[RightDoubleBracket]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "speakerBySentence", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ruleList", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{
+     RowBox[{"DeleteDuplicates", "[", "finalRules", "]"}], ",", 
+     RowBox[{"x_", "\[Rule]", "x_"}]}], "]"}]}], ";"}]}], "Input",ExpressionUU\
+ID->"1640a53d-4e0a-4c20-8db7-374f6c49fec2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sentiment Analysis", "Section",
+ CellChangeTimes->{{3.771861986472827*^9, 3.7718619953570557`*^9}, {
+  3.771862213519635*^9, 
+  3.771862227693742*^9}},ExpressionUUID->"85314e20-5961-4a67-855b-\
+0a6119c855ae"],
+
+Cell["\<\
+For each sentence, I collect the probability of each sentiment being \
+expressed where the probabilities sum to 1.\
+\>", "Text",
+ CellChangeTimes->{{3.7719177671235085`*^9, 3.7719177842257967`*^9}, {
+  3.7719285488257103`*^9, 3.771928565443851*^9}, {3.7719287829077415`*^9, 
+  3.7719287973655124`*^9}, {3.7719288293019743`*^9, 3.7719288497725134`*^9}, {
+  3.7719288919899445`*^9, 
+  3.771928920861784*^9}},ExpressionUUID->"ad07849f-1ba4-4844-a231-\
+fb867e9b5f95"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"feelings", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Classify", "[", 
+       RowBox[{"\"\<Sentiment\>\"", ",", "#", ",", "\"\<Probabilities\>\""}], 
+       "]"}], "&"}], "/@", "sentences"}], "//", "Flatten"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"pos", ",", "neu", ",", "neg"}], "}"}], "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+        "feelings", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+        "[", "#", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "feelings", "]"}]}], "}"}]}], "]"}], "&"}], "/@", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Positive\>\"", ",", "\"\<Neutral\>\"", ",", "\"\<Negative\>\""}], 
+     "}"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7718628205488305`*^9, 3.77186284921015*^9}, {
+  3.771928872391508*^9, 
+  3.771928875643875*^9}},ExpressionUUID->"265eef46-969f-47ee-87f5-\
+5d7ca2239632"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Attributing Sentiment with Relationships", "Section",
+ CellChangeTimes->{{3.771861986472827*^9, 3.7718619953570557`*^9}, {
+   3.771862268849682*^9, 3.7718622980336356`*^9}, 3.771862484323944*^9, {
+   3.7718628515758247`*^9, 3.7718629044854946`*^9}, 3.77186425614682*^9, {
+   3.7718643038901253`*^9, 
+   3.771864307079571*^9}},ExpressionUUID->"402aab24-d908-435f-a3af-\
+aaec3db699cf"],
+
+Cell[CellGroupData[{
+
+Cell["Organizing Sentiments", "Subsection",
+ CellChangeTimes->{{3.7718642831954885`*^9, 3.7718642927618675`*^9}, {
+  3.771864459939786*^9, 3.7718644609171724`*^9}, {3.7719182753002014`*^9, 
+  3.771918275871674*^9}},ExpressionUUID->"44cef36f-bedd-46c7-bf84-\
+b099de33e45b"],
+
+Cell["\<\
+The formula to determine relationship health is made experimentally based on \
+assumption that numerous probabilities can collectively indicate magnitude. \
+This formula uses a negativity bias which was deemed effective by \
+experimentation, and punishes uncertainty by putting the neutral term in the \
+denominator. Then, each relationship health is initialized as the average of \
+the respective sentiments.\
+\>", "Text",
+ CellChangeTimes->{{3.7719285745771637`*^9, 3.771928598119853*^9}, {
+  3.771928642293424*^9, 3.7719286682769403`*^9}, {3.7719287508474483`*^9, 
+  3.771928776230877*^9}, {3.7719289658074493`*^9, 
+  3.7719291031014414`*^9}},ExpressionUUID->"c157ed83-493a-493b-992c-\
+a56cc8a0f361"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"negBias", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Values", "[", "playConditions", "]"}], "\[LeftDoubleBracket]", 
+     "playNum", "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "2", 
+    "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Health", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"pos", "-", 
+      RowBox[{"negBias", "*", "neg"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"1", "+", "neu"}], ")"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"sentenceHealth", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+       "finalRules", "\[LeftDoubleBracket]", "#", "\[RightDoubleBracket]"}], 
+       ",", 
+       RowBox[{
+       "Health", "\[LeftDoubleBracket]", "#", "\[RightDoubleBracket]"}]}], 
+      "}"}], "&"}], "/@", 
+    RowBox[{"Range", "[", 
+     RowBox[{"Length", "[", "Health", "]"}], "]"}]}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"sentenceHealthFormat", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Cases", "[", 
+      RowBox[{"sentenceHealth", ",", 
+       RowBox[{"{", 
+        RowBox[{"#", ",", "_"}], "}"}]}], "]"}], "&"}], "/@", "ruleList"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"relationshipHealth", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Mean", "[", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{
+          "sentenceHealthFormat", "\[LeftDoubleBracket]", "i", 
+           "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "j", 
+          "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "2", 
+         "\[RightDoubleBracket]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "1", ",", 
+          RowBox[{"Length", "[", 
+           RowBox[{
+           "sentenceHealthFormat", "\[LeftDoubleBracket]", "i", 
+            "\[RightDoubleBracket]"}], "]"}]}], "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "sentenceHealthFormat", "]"}]}], "}"}]}], 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.771867628556616*^9, 3.771867628608621*^9}, {
+   3.771868870909889*^9, 3.771868870989919*^9}, 3.771928691803851*^9, {
+   3.771928879972378*^9, 
+   3.7719288807363777`*^9}},ExpressionUUID->"b438bd48-121c-44b8-99ec-\
+8fbadd35e1e6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Incorporating Frequency into Relationship Health Calculation", \
+"Subsection",
+ CellChangeTimes->{{3.7718629616891212`*^9, 3.7718629949372077`*^9}, {
+  3.7719182788507113`*^9, 
+  3.7719182794231806`*^9}},ExpressionUUID->"ff45f2e0-c9db-49f0-afd5-\
+aeae26807291"],
+
+Cell["\<\
+I make an additional assumption, that multiple expressions of sentiment \
+indicate stronger sentiment. Consequently, I implement frequency of a \
+particular interaction into the health calculation.\
+\>", "Text",
+ CellChangeTimes->{{3.771929109486122*^9, 
+  3.771929218481003*^9}},ExpressionUUID->"b7e1e1e2-9610-466b-92b9-\
+0216f4874e74"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"freq", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Length", "[", 
+      RowBox[{
+      "sentenceHealthFormat", "\[LeftDoubleBracket]", "i", 
+       "\[RightDoubleBracket]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "sentenceHealthFormat", "]"}]}], "}"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"freqMultiplier", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Log", "[", "x", "]"}], "+", "2"}], ")"}], "/", "2"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"relationshipHealthFinal", "=", 
+   RowBox[{"relationshipHealth", "*", 
+    RowBox[{"N", "[", 
+     RowBox[{"freqMultiplier", "[", "freq", "]"}], "]"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7718629989843845`*^9, 3.771863004518611*^9}, {
+  3.771864846792403*^9, 3.771864847134465*^9}, {3.7719292030910077`*^9, 
+  3.7719292032310395`*^9}},ExpressionUUID->"153a1130-a984-46f9-bf94-\
+321d38e52671"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Relationship Selection", "Section",
+ CellChangeTimes->{{3.771861986472827*^9, 3.7718619953570557`*^9}, {
+   3.771862268849682*^9, 3.7718622980336356`*^9}, 3.7718629315347614`*^9, {
+   3.7718630444029245`*^9, 
+   3.771863047381958*^9}},ExpressionUUID->"5b220e98-bc10-4ed8-b9ad-\
+1e1ecf141500"],
+
+Cell["\<\
+In order to pull out the most relevant relationships, I exclude neutral and \
+conflicted relationships that have health values close to 0. The \
+relationships are tested with the minimum positive or negative requirements. \
+The relevant relationships that haven\[CloseCurlyQuote]t been excluded are \
+set aside.\
+\>", "Text",
+ CellChangeTimes->{{3.771929241855977*^9, 3.7719292546058846`*^9}, {
+  3.771929305097107*^9, 
+  3.771929521235917*^9}},ExpressionUUID->"b115c650-d46e-4a38-8c1e-\
+4b3a521ceaa1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"posTolerance", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Values", "[", "playConditions", "]"}], "\[LeftDoubleBracket]", 
+     "playNum", "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "3", 
+    "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"negTolerance", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Values", "[", "playConditions", "]"}], "\[LeftDoubleBracket]", 
+     "playNum", "\[RightDoubleBracket]"}], "\[LeftDoubleBracket]", "4", 
+    "\[RightDoubleBracket]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"viableRel", "=", 
+   RowBox[{
+    RowBox[{"Position", "[", 
+     RowBox[{"relationshipHealthFinal", ",", 
+      RowBox[{"x_", "/;", 
+       RowBox[{
+        RowBox[{"x", ">", "posTolerance"}], "||", 
+        RowBox[{"x", "<", "negTolerance"}]}]}]}], "]"}], "//", "Flatten"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"relationshipHealthFinalExc", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+     "relationshipHealthFinal", "\[LeftDoubleBracket]", "i", 
+      "\[RightDoubleBracket]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "viableRel"}], "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.771863049708735*^9, 3.771863053209374*^9}, {
+  3.7718632525509214`*^9, 3.7718632539552045`*^9}, {3.7718633375107174`*^9, 
+  3.7718633442995625`*^9}, {3.771864427099608*^9, 3.771864427785812*^9}, {
+  3.7718676309875007`*^9, 3.771867631767502*^9}, {3.7718688733264894`*^9, 
+  3.7718688740746555`*^9}, {3.7719292057632065`*^9, 
+  3.7719292383116617`*^9}},ExpressionUUID->"d9f77273-6867-4edb-a55b-\
+0db48f4543ee"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Graphing Relationship Network", "Section",
+ CellChangeTimes->{{3.771861986472827*^9, 3.7718619953570557`*^9}, {
+  3.771862268849682*^9, 3.7718622980336356`*^9}, {3.771863072744134*^9, 
+  3.771863083271017*^9}, {3.771864911128354*^9, 
+  3.7718649141103554`*^9}},ExpressionUUID->"f4794dd7-9091-420f-8923-\
+37998533581f"],
+
+Cell[CellGroupData[{
+
+Cell["Transforming Relationship Health to Color", "Subsection",
+ CellChangeTimes->{{3.7718640871563997`*^9, 3.771864102040266*^9}, {
+  3.7718641338755784`*^9, 3.7718641802695103`*^9}, {3.771864451085464*^9, 
+  3.7718644522513466`*^9}, {3.7719182828500214`*^9, 
+  3.7719182830235577`*^9}},ExpressionUUID->"1311ad19-e820-4cc8-baef-\
+0795bc7befc9"],
+
+Cell["\<\
+The relationship healths are then rescaled to produce a color from red to \
+green. I add gray so that edges can be compared more easily by brightness of \
+color instead of by their hue.\
+\>", "Text",
+ CellChangeTimes->{{3.771929565737914*^9, 3.7719295772234535`*^9}, {
+  3.7719297673376236`*^9, 
+  3.771929861982582*^9}},ExpressionUUID->"4cf82d42-9ce2-4007-98a3-\
+ba3d8f664c19"],
+
+Cell[BoxData[{
+ RowBox[{"relationshipColors", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"Blend", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"Red", ",", "Gray", ",", "Green"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"i", "+", "1"}], ")"}], "/", "2"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "relationshipHealthFinalExc"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"viableEdges", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+     "ruleList", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "viableRel"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"edgeColors", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "viableEdges", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], "->", 
+      RowBox[{
+      "relationshipColors", "\[LeftDoubleBracket]", "i", 
+       "\[RightDoubleBracket]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"Length", "[", "viableEdges", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.77186335683105*^9, 3.7718633706780205`*^9}, {
+  3.77186467381619*^9, 
+  3.771864673932878*^9}},ExpressionUUID->"3c22ea00-d4b9-482e-ae3f-\
+e2c653e0ce27"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Additional Graph Settings For Selected Relationships", "Subsection",
+ CellChangeTimes->{{3.771864210099737*^9, 3.771864221640674*^9}, {
+  3.7718643564904537`*^9, 3.7718643577331133`*^9}, {3.771864571704898*^9, 
+  3.7718645724189887`*^9}, {3.7718646341931515`*^9, 
+  3.771864658679669*^9}},ExpressionUUID->"897e8a23-26fc-422f-9a55-\
+ff55b1538cba"],
+
+Cell["\<\
+In preparation of generating a graph, I normalize the thickness of the edges \
+that are based on the comparative frequencies of the relationships, all the \
+while selecting only the relevant relationships.\
+\>", "Text",
+ CellChangeTimes->{{3.77192987524479*^9, 3.7719299958753514`*^9}, {
+  3.7719300608362083`*^9, 3.7719300699254994`*^9}, {3.7719303215173945`*^9, 
+  3.7719303423519716`*^9}},ExpressionUUID->"58fb3688-49d5-4b7e-b759-\
+f7ce1ddd1cf3"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"edgeWidth", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "ruleList", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+      "\[Rule]", 
+      RowBox[{"freqMultiplier", "[", 
+       RowBox[{"N", "[", 
+        RowBox[{
+        "freq", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], "]"}],
+        "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"Length", "[", "ruleList", "]"}]}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"viableFreq", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"freq", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "viableRel"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"viableEdgeWidth", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+     "edgeWidth", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "viableRel"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"thickness", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"N", "[", "freq", "]"}], "/", 
+     RowBox[{"Max", "[", 
+      RowBox[{"N", "[", "freq", "]"}], "]"}]}], "*", ".012"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"edgeThickness", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+     "thickness", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "viableRel"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"viableThickness", "=", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"viableEdges", "\[Rule]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Thickness", "[", "#", "]"}], "&"}], "/@", "edgeThickness"}], 
+      ")"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"edgeFormat", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+      "viableEdges", "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], 
+      "\[Rule]", 
+      RowBox[{"Directive", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Values", "[", "viableThickness", "]"}], 
+         "\[LeftDoubleBracket]", "i", "\[RightDoubleBracket]"}], ",", 
+        RowBox[{
+         RowBox[{"Values", "[", "edgeColors", "]"}], "\[LeftDoubleBracket]", 
+         "i", "\[RightDoubleBracket]"}]}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "edgeColors", "]"}]}], "}"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.771864725577538*^9, 3.7718647257411356`*^9}, {
+   3.771864851882767*^9, 3.7718648530207243`*^9}, {3.7718649554288597`*^9, 
+   3.771864986088867*^9}, 3.7718651034709597`*^9, {3.7718651692680025`*^9, 
+   3.771865196927062*^9}},ExpressionUUID->"a83327cd-86e7-4540-8f7c-\
+aa97002406ee"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Graphs", "Subsection",
+ CellChangeTimes->{{3.771864660444948*^9, 
+  3.7718646981000433`*^9}},ExpressionUUID->"d0dd61e7-a496-4ad3-92bb-\
+59c257dfc4e6"],
+
+Cell["\<\
+At last, we\[CloseCurlyQuote]re ready to graph the relationships. A community \
+graph plot illustrates clusters of people with strong feelings toward each \
+other, though not necessarily positive.\
+\>", "Text",
+ CellChangeTimes->{{3.771930037985139*^9, 3.7719300485004253`*^9}, {
+  3.771930348192727*^9, 
+  3.771930403228085*^9}},ExpressionUUID->"c97fddf0-d1d4-4734-a17e-\
+28f804ec45aa"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"Graph", "[", 
+    RowBox[{"nameList", ",", "viableEdges", ",", 
+     RowBox[{"VertexLabels", "\[Rule]", "All"}], ",", 
+     RowBox[{"EdgeStyle", "\[Rule]", "edgeFormat"}], ",", " ", 
+     RowBox[{"ImageSize", "\[Rule]", "800"}], ",", " ", 
+     RowBox[{"VertexLabelStyle", "\[Rule]", "14"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"cgp", "=", 
+  RowBox[{"CommunityGraphPlot", "[", 
+   RowBox[{"g", ",", 
+    RowBox[{"ImageSize", "\[Rule]", "800"}], ",", 
+    RowBox[{"VertexLabelStyle", "\[Rule]", "14"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7718647033749137`*^9, 3.7718647035295*^9}, {
+   3.771864742011589*^9, 3.7718647626573772`*^9}, 
+   3.7718651090081515`*^9},ExpressionUUID->"3d09cdd5-b27b-4357-b7cb-\
+d34bf2a19c98"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusion", "Section",
+ CellChangeTimes->{{3.7719300826748753`*^9, 
+  3.7719301195229025`*^9}},ExpressionUUID->"1bddf044-582c-4151-88bf-\
+b11634333cbc"],
+
+Cell[TextData[{
+ "The necessity of a negativity bias suggests that the Wolfram sentiment \
+classifier may have a positivity bias. Also, by human evaluation of the plays \
+and the respective relationship network graphs, Shakespearean works appear to \
+generate the most accurate graphs. Perhaps using sentiment analysis on each \
+sentence was too large of a unit for Greek plays that employ long, winding \
+sentences, and too small for modern plays that utilize rapid, ",
+ StyleBox["stichomythic",
+  IgnoreSpellCheck->True],
+ " dialogue and interjections."
+}], "Text",
+ CellChangeTimes->{{3.771930120854806*^9, 
+  3.771930152039978*^9}},ExpressionUUID->"0b4e3d13-a0fb-46d3-a4e9-\
+db0b9ed8ed90"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Future Work", "Section",
+ CellChangeTimes->{{3.7719300826748753`*^9, 
+  3.771930113593547*^9}},ExpressionUUID->"d975f48b-c1b7-4cd4-b926-\
+d5ac4d3b7ad7"],
+
+Cell["\<\
+As such, the size of the text used for each calculation of sentiment could be \
+a function of sentence length. Additionally, setting the values for health \
+parameters can be automated. Also, sentences with multiple character names \
+aren\[CloseCurlyQuote]t properly handled because I only allowed for one \
+recipient for each sentence.  One could handle the cases of having multiple \
+recipients for a sentiment. The most difficult avenue, though perhaps the \
+most fruitful, would be to catch pronouns, aliases, and titles and assign \
+them to the proper recipient. Once completed, a novel can be analyzed by \
+using a similar process as above to determine the speaker in addition to the \
+recipient of a particular sentiment.\
+\>", "Text",
+ CellChangeTimes->{{3.771930117009942*^9, 3.771930117650522*^9}, {
+  3.7719301796238084`*^9, 3.7719301887488747`*^9}, {3.7719302334836226`*^9, 
+  3.7719302723944845`*^9}},ExpressionUUID->"9c756c5c-5ed5-46da-886c-\
+ffccee39075d"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+DockedCells->{
+  Cell[
+   TextData[{
+     StyleBox["  WOLFRAM ", 
+      RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontWeight -> 
+      Bold, FontSize -> 40], 
+     StyleBox["SUMMER SCHOOL", 
+      GrayLevel[1], FontFamily -> "Source Sans Pro", FontSize -> 40], 
+     StyleBox[" 2019", 
+      RGBColor[0.97, 0.83, 0.35], FontFamily -> "Source Sans Pro", FontSize -> 
+      40]}], CellFrameMargins -> 10, Background -> 
+   RGBColor[0.12, 0.14, 0.15]]},
+Magnification:>1.1 Inherited,
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Title"->{
+  Cell[580, 22, 479, 9, 107, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
+   CellTags->"Title"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Title", 49935, 1320}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 479, 9, 107, "Title",ExpressionUUID->"49ab34ee-bfd5-49f5-beef-400d3cc456dd",
+ CellTags->"Title"],
+Cell[1062, 33, 479, 10, 65, "Text",ExpressionUUID->"94536f76-3fd2-4bf6-b228-fa93ec9acae9"],
+Cell[CellGroupData[{
+Cell[1566, 47, 159, 3, 73, "Section",ExpressionUUID->"d670d8cf-9ba1-42b5-afa2-134d219e171a"],
+Cell[1728, 52, 1175, 18, 115, "Text",ExpressionUUID->"77285646-8c99-4bd9-ac9f-cedeb7c0fefa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2940, 75, 158, 3, 73, "Section",ExpressionUUID->"f224ad33-a34e-40da-a4f3-5348e6a21888"],
+Cell[3101, 80, 1035, 16, 90, "Text",ExpressionUUID->"38ea1541-409b-43f5-9d95-a5a4e29bbd6a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4173, 101, 163, 3, 73, "Section",ExpressionUUID->"2ba667a8-f65d-426d-aa23-84ad71120121"],
+Cell[4339, 106, 737, 12, 39, "Text",ExpressionUUID->"0ac1297b-64ff-448d-81ab-9b752a8d4edb"],
+Cell[5079, 120, 5979, 133, 154, "Input",ExpressionUUID->"8a71709c-496e-46f5-b45b-7e69e01916e1"],
+Cell[11061, 255, 498, 9, 39, "Text",ExpressionUUID->"4b81b55e-51e1-498e-94ba-012bbbf6c3dc"],
+Cell[11562, 266, 4522, 119, 143, "Input",ExpressionUUID->"602140ec-bec7-45fb-a866-4196129d93af"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16121, 390, 217, 4, 73, "Section",ExpressionUUID->"2b2f0cb3-15e2-488a-882c-e5f9bf3cdebd"],
+Cell[CellGroupData[{
+Cell[16363, 398, 156, 3, 59, "Subsection",ExpressionUUID->"7da48ae7-4e59-43ef-894e-361d5c08d3d3"],
+Cell[16522, 403, 432, 9, 39, "Text",ExpressionUUID->"5a7fb105-2a8c-4909-83fd-cb8144ee5649"],
+Cell[16957, 414, 1271, 35, 99, "Input",ExpressionUUID->"bf662e0f-634d-4654-bcac-fee7ba37343f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18265, 454, 162, 3, 59, "Subsection",ExpressionUUID->"720ce5d0-a642-4677-845a-8123e5e51bab"],
+Cell[18430, 459, 516, 9, 39, "Text",ExpressionUUID->"09c17784-6919-4e7a-b41a-7e784c187477"],
+Cell[18949, 470, 1186, 30, 55, "Input",ExpressionUUID->"88709f09-dfdf-4386-9198-44c2f101aad2"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20184, 506, 305, 5, 73, "Section",ExpressionUUID->"cfe498a9-05df-4161-b5f9-c4c96bfcafc5"],
+Cell[20492, 513, 626, 11, 65, "Text",ExpressionUUID->"3d59db1d-4331-4bf8-9165-6d474912037f"],
+Cell[21121, 526, 2712, 74, 77, "Input",ExpressionUUID->"dcd33272-b251-4307-b7c4-dc4ce93b7a74"],
+Cell[23836, 602, 538, 9, 65, "Text",ExpressionUUID->"4419371d-1495-44dd-a473-b464a34437d1"],
+Cell[24377, 613, 689, 20, 55, "Input",ExpressionUUID->"8610949c-19d1-4a12-a6b0-05070823b946"],
+Cell[25069, 635, 454, 9, 39, "Text",ExpressionUUID->"d08e5063-56d5-4f48-98d0-bd8c47c64e05"],
+Cell[25526, 646, 2733, 73, 165, "Input",ExpressionUUID->"70587acb-2814-4d85-91eb-1f38cbafe361"],
+Cell[28262, 721, 511, 9, 39, "Text",ExpressionUUID->"9eecdf48-6cdb-4a6d-beb8-0938b4cd4c4e"],
+Cell[28776, 732, 913, 26, 77, "Input",ExpressionUUID->"1640a53d-4e0a-4c20-8db7-374f6c49fec2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29726, 763, 214, 4, 73, "Section",ExpressionUUID->"85314e20-5961-4a67-855b-0a6119c855ae"],
+Cell[29943, 769, 473, 9, 39, "Text",ExpressionUUID->"ad07849f-1ba4-4844-a231-fb867e9b5f95"],
+Cell[30419, 780, 1064, 32, 55, "Input",ExpressionUUID->"265eef46-969f-47ee-87f5-5d7ca2239632"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31520, 817, 389, 6, 73, "Section",ExpressionUUID->"402aab24-d908-435f-a3af-aaec3db699cf"],
+Cell[CellGroupData[{
+Cell[31934, 827, 272, 4, 59, "Subsection",ExpressionUUID->"44cef36f-bedd-46c7-bf84-b099de33e45b"],
+Cell[32209, 833, 713, 12, 65, "Text",ExpressionUUID->"c157ed83-493a-493b-992c-a56cc8a0f361"],
+Cell[32925, 847, 2314, 67, 121, "Input",ExpressionUUID->"b438bd48-121c-44b8-99ec-8fbadd35e1e6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35276, 919, 267, 5, 59, "Subsection",ExpressionUUID->"ff45f2e0-c9db-49f0-afd5-aeae26807291"],
+Cell[35546, 926, 347, 7, 39, "Text",ExpressionUUID->"b7e1e1e2-9610-466b-92b9-0216f4874e74"],
+Cell[35896, 935, 1038, 29, 77, "Input",ExpressionUUID->"153a1130-a984-46f9-bf94-321d38e52671"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36983, 970, 298, 5, 73, "Section",ExpressionUUID->"5b220e98-bc10-4ed8-b9ad-1e1ecf141500"],
+Cell[37284, 977, 512, 10, 65, "Text",ExpressionUUID->"b115c650-d46e-4a38-8c1e-4b3a521ceaa1"],
+Cell[37799, 989, 1647, 40, 99, "Input",ExpressionUUID->"d9f77273-6867-4edb-a55b-0db48f4543ee"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39483, 1034, 324, 5, 73, "Section",ExpressionUUID->"f4794dd7-9091-420f-8923-37998533581f"],
+Cell[CellGroupData[{
+Cell[39832, 1043, 345, 5, 59, "Subsection",ExpressionUUID->"1311ad19-e820-4cc8-baef-0795bc7befc9"],
+Cell[40180, 1050, 388, 8, 39, "Text",ExpressionUUID->"4cf82d42-9ce2-4007-98a3-ba3d8f664c19"],
+Cell[40571, 1060, 1337, 40, 77, "Input",ExpressionUUID->"3c22ea00-d4b9-482e-ae3f-e2c653e0ce27"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41945, 1105, 352, 5, 59, "Subsection",ExpressionUUID->"897e8a23-26fc-422f-9a55-ff55b1538cba"],
+Cell[42300, 1112, 459, 8, 39, "Text",ExpressionUUID->"58fb3688-49d5-4b7e-b759-f7ce1ddd1cf3"],
+Cell[42762, 1122, 2873, 84, 143, "Input",ExpressionUUID->"a83327cd-86e7-4540-8f7c-aa97002406ee"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45672, 1211, 156, 3, 59, "Subsection",ExpressionUUID->"d0dd61e7-a496-4ad3-92bb-59c257dfc4e6"],
+Cell[45831, 1216, 397, 8, 39, "Text",ExpressionUUID->"c97fddf0-d1d4-4734-a17e-28f804ec45aa"],
+Cell[46231, 1226, 803, 18, 55, "Input",ExpressionUUID->"3d09cdd5-b27b-4357-b7cb-d34bf2a19c98"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47083, 1250, 159, 3, 73, "Section",ExpressionUUID->"1bddf044-582c-4151-88bf-b11634333cbc"],
+Cell[47245, 1255, 693, 13, 65, "Text",ExpressionUUID->"0b4e3d13-a0fb-46d3-a4e9-db0b9ed8ed90"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47975, 1273, 158, 3, 73, "Section",ExpressionUUID->"d975f48b-c1b7-4cd4-b926-d5ac4d3b7ad7"],
+Cell[48136, 1278, 981, 15, 90, "Text",ExpressionUUID->"9c756c5c-5ed5-46da-886c-ffccee39075d"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

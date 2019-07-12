@@ -1,0 +1,27 @@
+<p><blockquote>
+<i>Enter EDGAR</i>
+</blockquote>
+
+<A NAME=speech1><b>EDGAR</b></a>
+<blockquote>
+<A NAME=1>I heard myself proclaim'd;</A><br>
+<A NAME=2>And by the happy hollow of a tree</A><br>
+<A NAME=3>Escaped the hunt. No port is free; no place,</A><br>
+<A NAME=4>That guard, and most unusual vigilance,</A><br>
+<A NAME=5>Does not attend my taking. Whiles I may 'scape,</A><br>
+<A NAME=6>I will preserve myself: and am bethought</A><br>
+<A NAME=7>To take the basest and most poorest shape</A><br>
+<A NAME=8>That ever penury, in contempt of man,</A><br>
+<A NAME=9>Brought near to beast: my face I'll grime with filth;</A><br>
+<A NAME=10>Blanket my loins: elf all my hair in knots;</A><br>
+<A NAME=11>And with presented nakedness out-face</A><br>
+<A NAME=12>The winds and persecutions of the sky.</A><br>
+<A NAME=13>The country gives me proof and precedent</A><br>
+<A NAME=14>Of Bedlam beggars, who, with roaring voices,</A><br>
+<A NAME=15>Strike in their numb'd and mortified bare arms</A><br>
+<A NAME=16>Pins, wooden pricks, nails, sprigs of rosemary;</A><br>
+<A NAME=17>And with this horrible object, from low farms,</A><br>
+<A NAME=18>Poor pelting villages, sheep-cotes, and mills,</A><br>
+<A NAME=19>Sometime with lunatic bans, sometime with prayers,</A><br>
+<A NAME=20>Enforce their charity. Poor Turlygod! poor Tom!</A><br>
+<A NAME=21>That's something yet: Edgar I nothing am.</A><br>

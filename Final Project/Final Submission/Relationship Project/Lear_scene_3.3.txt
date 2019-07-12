@@ -1,0 +1,44 @@
+<p><blockquote>
+<i>Enter GLOUCESTER and EDMUND</i>
+</blockquote>
+
+<A NAME=speech1><b>GLOUCESTER</b></a>
+<blockquote>
+<A NAME=1>Alack, alack, Edmund, I like not this unnatural</A><br>
+<A NAME=2>dealing. When I desire their leave that I might</A><br>
+<A NAME=3>pity him, they took from me the use of mine own</A><br>
+<A NAME=4>house; charged me, on pain of their perpetual</A><br>
+<A NAME=5>displeasure, neither to speak of him, entreat for</A><br>
+<A NAME=6>him, nor any way sustain him.</A><br>
+</blockquote>
+
+<A NAME=speech2><b>EDMUND</b></a>
+<blockquote>
+<A NAME=7>Most savage and unnatural!</A><br>
+</blockquote>
+
+<A NAME=speech3><b>GLOUCESTER</b></a>
+<blockquote>
+<A NAME=8>Go to; say you nothing. There's a division betwixt</A><br>
+<A NAME=9>the dukes; and a worse matter than that: I have</A><br>
+<A NAME=10>received a letter this night; 'tis dangerous to be</A><br>
+<A NAME=11>spoken; I have locked the letter in my closet:</A><br>
+<A NAME=12>these injuries the king now bears will be revenged</A><br>
+<A NAME=13>home; there's part of a power already footed: we</A><br>
+<A NAME=14>must incline to the king. I will seek him, and</A><br>
+<A NAME=15>privily relieve him: go you and maintain talk with</A><br>
+<A NAME=16>the duke, that my charity be not of him perceived:</A><br>
+<A NAME=17>if he ask for me. I am ill, and gone to bed.</A><br>
+<A NAME=18>Though I die for it, as no less is threatened me,</A><br>
+<A NAME=19>the king my old master must be relieved. There is</A><br>
+<A NAME=20>some strange thing toward, Edmund; pray you, be careful.</A><br>
+<p><i>Exit</i></p>
+</blockquote>
+
+<A NAME=speech4><b>EDMUND</b></a>
+<blockquote>
+<A NAME=21>This courtesy, forbid thee, shall the duke</A><br>
+<A NAME=22>Instantly know; and of that letter too:</A><br>
+<A NAME=23>This seems a fair deserving, and must draw me</A><br>
+<A NAME=24>That which my father loses; no less than all:</A><br>
+<A NAME=25>The younger rises when the old doth fall.</A><br>

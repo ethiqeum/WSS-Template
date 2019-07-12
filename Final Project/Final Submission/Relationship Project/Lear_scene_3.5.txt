@@ -1,0 +1,63 @@
+<p><blockquote>
+<i>Enter CORNWALL and EDMUND</i>
+</blockquote>
+
+<A NAME=speech1><b>CORNWALL</b></a>
+<blockquote>
+<A NAME=1>I will have my revenge ere I depart his house.</A><br>
+</blockquote>
+
+<A NAME=speech2><b>EDMUND</b></a>
+<blockquote>
+<A NAME=2>How, my lord, I may be censured, that nature thus</A><br>
+<A NAME=3>gives way to loyalty, something fears me to think</A><br>
+<A NAME=4>of.</A><br>
+</blockquote>
+
+<A NAME=speech3><b>CORNWALL</b></a>
+<blockquote>
+<A NAME=5>I now perceive, it was not altogether your</A><br>
+<A NAME=6>brother's evil disposition made him seek his death;</A><br>
+<A NAME=7>but a provoking merit, set a-work by a reprovable</A><br>
+<A NAME=8>badness in himself.</A><br>
+</blockquote>
+
+<A NAME=speech4><b>EDMUND</b></a>
+<blockquote>
+<A NAME=9>How malicious is my fortune, that I must repent to</A><br>
+<A NAME=10>be just! This is the letter he spoke of, which</A><br>
+<A NAME=11>approves him an intelligent party to the advantages</A><br>
+<A NAME=12>of France: O heavens! that this treason were not,</A><br>
+<A NAME=13>or not I the detector!</A><br>
+</blockquote>
+
+<A NAME=speech5><b>CORNWALL</b></a>
+<blockquote>
+<A NAME=14>o with me to the duchess.</A><br>
+</blockquote>
+
+<A NAME=speech6><b>EDMUND</b></a>
+<blockquote>
+<A NAME=15>If the matter of this paper be certain, you have</A><br>
+<A NAME=16>mighty business in hand.</A><br>
+</blockquote>
+
+<A NAME=speech7><b>CORNWALL</b></a>
+<blockquote>
+<A NAME=17>True or false, it hath made thee earl of</A><br>
+<A NAME=18>Gloucester. Seek out where thy father is, that he</A><br>
+<A NAME=19>may be ready for our apprehension.</A><br>
+</blockquote>
+
+<A NAME=speech8><b>EDMUND</b></a>
+<blockquote>
+<A NAME=20>[Aside]  If I find him comforting the king, it will</A><br>
+<A NAME=21>stuff his suspicion more fully.--I will persevere in</A><br>
+<A NAME=22>my course of loyalty, though the conflict be sore</A><br>
+<A NAME=23>between that and my blood.</A><br>
+</blockquote>
+
+<A NAME=speech9><b>CORNWALL</b></a>
+<blockquote>
+<A NAME=24>I will lay trust upon thee; and thou shalt find a</A><br>
+<A NAME=25>dearer father in my love.</A><br>
